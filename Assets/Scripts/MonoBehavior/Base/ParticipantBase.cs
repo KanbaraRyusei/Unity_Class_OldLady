@@ -17,6 +17,7 @@ public abstract class ParticipantBase : MonoBehaviour
     {
         _name = name;
         _index = index;
+        Debug.Log(_name + _index);
     }
 
     public void AddHand(Card card)

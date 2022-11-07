@@ -16,5 +16,10 @@ public class StaffEditor : Editor
         {
             staff.GenerateParticipant();
         }
+
+        if(GUILayout.Button("DeleteParticipant"))
+        {
+            staff.DeleteParticipant();
+        }
     }
 }

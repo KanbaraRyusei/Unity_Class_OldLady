@@ -359,8 +359,8 @@ MonoBehaviour:
   _prefab: {fileID: 257753817}
   _player: {fileID: 660916853}
   _names:
-  - a
-  - sd
-  - f
-  - g
-  - h
+  - "\u305F\u306A\u304B"
+  - "\u3055\u3068\u3046"
+  - "\u305F\u304B\u306F\u3057"
+  - "\u3059\u305A\u304D"
+  - "\u3044\u3068\u3046"

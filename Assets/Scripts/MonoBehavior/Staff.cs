@@ -20,15 +20,35 @@ public class Staff : MonoBehaviour
     [Header("“K“–‚È–¼‘O")]
     private string[] _names;
 
+    private GameObject[] _participants;
+
     public void GenerateParticipant()
     {
+        _participants = new GameObject[_participantNum];
         var player = Instantiate(_player);
         player.GetComponent<ParticipantBase>().SetData(_names[Random.Range(0, _names.Length)], 0);
+        _participants[0] = player;
 
         for (int i = 1; i < _participantNum; i++)
         {
             var participant = Instantiate(_prefab);
             participant.GetComponent<ParticipantBase>().SetData(_names[Random.Range(0, _names.Length)], i);
+            _participants[i] = participant;
         }
+    }
+
+    public void DeleteParticipant()
+    {
+        if(_participants == null)
+        {
+            Debug.LogError("íœ‘ÎÛ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
+            return;
+        }
+        for(int i = 0; i < _participants.Length; i++)
+        {
+            DestroyImmediate(_participants[i]);
+        }
+        _participants = null;
+        Debug.Log("íœ‚µ‚Ü‚µ‚½");
     }
 }
