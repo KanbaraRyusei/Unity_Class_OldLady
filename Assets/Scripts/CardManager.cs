@@ -15,6 +15,7 @@ public static class CardManager
         if(_cards.Contains(card))
         {
             Debug.LogError("“¯‚¶ƒJ[ƒh‚ª•¡”¶¬‚³‚ê‚Ä‚¢‚Ü‚·");
+            return;
         }
         _cards.Add(card);
     }

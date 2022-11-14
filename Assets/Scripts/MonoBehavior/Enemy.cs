@@ -6,6 +6,7 @@ public class Enemy : ParticipantBase
 {
     public override void GetOtherHand()
     {
-        
+        base.GetOtherHand();
+        NextTurn();
     }
 }

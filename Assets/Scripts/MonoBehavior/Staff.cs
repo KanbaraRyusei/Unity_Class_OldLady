@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Staff : MonoBehaviour
 {
@@ -32,8 +33,21 @@ public class Staff : MonoBehaviour
         for (int i = 1; i < _participantNum; i++)
         {
             var participant = Instantiate(_prefab);
-            participant.GetComponent<ParticipantBase>().SetData(_names[Random.Range(0, _names.Length)], i);
+            var name = _names[Random.Range(0, _names.Length)];
+            for (int j = 0; j < ParticipantManager.Participants.Count; j++)
+            {
+                if (name == ParticipantManager.Participants[j].name)
+                {
+                    name = name + j;
+                }
+            }
+            participant.GetComponent<ParticipantBase>().SetData(name, i);
             _participants[i] = participant;
+        }
+
+        for(int i = 0; i < _participants.Length; i++)
+        {
+            ParticipantManager.Register(_participants[i].GetComponent<ParticipantBase>());
         }
     }
 
