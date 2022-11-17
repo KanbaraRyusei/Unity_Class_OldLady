@@ -22,6 +22,11 @@ public class ParticipantBase : MonoBehaviour
 
     public void AddHand(Card card)
     {
+        if(_hands.Contains(card))
+        {
+            Debug.LogError("d•¡‚µ‚Ä‚¢‚Ü‚·" + card.Suit + " " + card.Number);
+            return;
+        }
         _hands.Add(card);
         Debug.Log("Add" + card.Suit + " " + card.Number + " " + _name);
         HandCheck();
